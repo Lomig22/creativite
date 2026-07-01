@@ -226,6 +226,13 @@ body.menu-open .mobile-overlay{ opacity:1; visibility:visible; }
   display:flex;
   align-items:center;
   padding:130px 0 80px;
+  background-image:
+    linear-gradient(to right, rgba(61,39,20,0.95) 0%, rgba(61,39,20,0.86) 42%, rgba(61,39,20,0.55) 100%),
+    linear-gradient(to top, var(--bois) 2%, rgba(61,39,20,0.30) 55%),
+    url("https://images.unsplash.com/photo-1659930087003-2d64e33181f7?w=1920&q=80&auto=format&fit=crop");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
 }
 .hero h1{
   font-weight:900;
@@ -316,14 +323,15 @@ body.menu-open .mobile-overlay{ opacity:1; visibility:visible; }
   text-align:center;
   padding:18px;
 }
-.item .item-center{
-  font-family:'Playfair Display', serif;
-  font-style:italic;
-  font-size:20px;
-  color:var(--miel);
-  opacity:0.30;
-  transition:opacity 0.35s ease;
+.item img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform 0.6s var(--ease);
 }
+.item:hover img{ transform:scale(1.05); }
 .item .item-label{
   position:absolute;
   left:0; right:0; bottom:0;
@@ -353,7 +361,6 @@ body.menu-open .mobile-overlay{ opacity:1; visibility:visible; }
   text-align:center;
 }
 .item:hover .item-hover{ opacity:1; }
-.item:hover .item-center{ opacity:0; }
 .gallery-cta{ margin-top:36px; }
 .gallery-cta a{
   font-family:'Lato', sans-serif;
@@ -396,20 +403,27 @@ body.menu-open .mobile-overlay{ opacity:1; visibility:visible; }
 }
 .boutique-photo{
   position:relative;
-  background:var(--forge);
+  background:var(--forge) center/cover no-repeat;
   border-radius:8px;
-  min-height:360px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  min-height:400px;
+  overflow:hidden;
   border:1px solid rgba(196,133,74,0.12);
 }
+.boutique-photo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(26,26,26,0.75) 0%, rgba(26,26,26,0.05) 55%);
+}
 .boutique-photo span{
+  position:absolute;
+  left:22px;
+  bottom:20px;
+  z-index:1;
   font-family:'Playfair Display', serif;
   font-style:italic;
   font-size:22px;
   color:var(--miel);
-  opacity:0.55;
 }
 .boutique-text .lead{ margin-bottom:26px; }
 .boutique-meta{
@@ -753,27 +767,27 @@ body.menu-open .mobile-overlay{ opacity:1; visibility:visible; }
 
     <div class="gallery-1 reveal d1">
       <figure class="item">
-        <span class="item-center">Souche live edge</span>
+        <img src="https://images.unsplash.com/photo-1515446134809-993c501ca304?w=1600&q=80&auto=format&fit=crop" alt="Tranche de souche de châtaignier aux cernes apparents" loading="lazy">
         <span class="item-label">Souche live edge — pièce unique</span>
         <div class="item-hover"><span>Souche live edge — pièce unique</span></div>
       </figure>
       <figure class="item">
-        <span class="item-center">Table bois &amp; fer</span>
+        <img src="https://images.unsplash.com/photo-1605635544350-5796fb1622d1?w=1000&q=80&auto=format&fit=crop" alt="Table en bois massif à bord naturel" loading="lazy">
         <span class="item-label">Table bois &amp; fer forgé</span>
         <div class="item-hover"><span>Table bois &amp; fer forgé</span></div>
       </figure>
       <figure class="item">
-        <span class="item-center">Plateau gravé</span>
+        <img src="https://images.unsplash.com/photo-1583596838470-10ae8e96a95a?w=1000&q=80&auto=format&fit=crop" alt="Plateau en bois au grain marqué" loading="lazy">
         <span class="item-label">Plateau nustrale gravé</span>
         <div class="item-hover"><span>Plateau nustrale gravé</span></div>
       </figure>
       <figure class="item">
-        <span class="item-center">Armoire penderie</span>
+        <img src="https://images.unsplash.com/photo-1633435597188-27c1e70f329d?w=1000&q=80&auto=format&fit=crop" alt="Meuble en bois massif" loading="lazy">
         <span class="item-label">Armoire penderie — bois massif</span>
         <div class="item-hover"><span>Armoire penderie — bois massif</span></div>
       </figure>
       <figure class="item">
-        <span class="item-center">Sculpture souche</span>
+        <img src="https://images.unsplash.com/photo-1476589143317-647df3b59c32?w=1000&q=80&auto=format&fit=crop" alt="Souche de bois sculptée" loading="lazy">
         <span class="item-label">Sculpture souche — vide central</span>
         <div class="item-hover"><span>Sculpture souche — vide central</span></div>
       </figure>
@@ -781,22 +795,22 @@ body.menu-open .mobile-overlay{ opacity:1; visibility:visible; }
 
     <div class="gallery-2 reveal d2">
       <figure class="item">
-        <span class="item-center">Gravure</span>
+        <img src="https://images.unsplash.com/photo-1553051021-9f94520a6cad?w=1000&q=80&auto=format&fit=crop" alt="Travail de sculpture à la main sur bois" loading="lazy">
         <span class="item-label">Gravure personnalisée</span>
         <div class="item-hover"><span>Gravure personnalisée</span></div>
       </figure>
       <figure class="item">
-        <span class="item-center">Bol sculpté</span>
+        <img src="https://images.unsplash.com/photo-1602881916963-5daf2d97c06e?w=1000&q=80&auto=format&fit=crop" alt="Bol en bois sculpté dans la masse" loading="lazy">
         <span class="item-label">Bol sculpté dans la masse</span>
         <div class="item-hover"><span>Bol sculpté dans la masse</span></div>
       </figure>
       <figure class="item">
-        <span class="item-center">Marches bois</span>
+        <img src="https://images.unsplash.com/photo-1601641103805-5579d5b59522?w=1000&q=80&auto=format&fit=crop" alt="Planches de bois massif" loading="lazy">
         <span class="item-label">Marches extérieures bois</span>
         <div class="item-hover"><span>Marches extérieures bois</span></div>
       </figure>
       <figure class="item">
-        <span class="item-center">Gamelle gravée</span>
+        <img src="https://images.unsplash.com/photo-1567763745030-bfe9c51bec27?w=1000&q=80&auto=format&fit=crop" alt="Petit récipient en bois tourné" loading="lazy">
         <span class="item-label">Article personnalisé — gamelle gravée</span>
         <div class="item-hover"><span>Article personnalisé — gamelle gravée</span></div>
       </figure>
@@ -851,7 +865,7 @@ body.menu-open .mobile-overlay{ opacity:1; visibility:visible; }
 <section class="section woodgrain bg-bois" id="boutique">
   <div class="wrap">
     <div class="boutique-grid">
-      <div class="boutique-photo reveal">
+      <div class="boutique-photo reveal" style="background-image:url('https://images.unsplash.com/photo-1590880795696-20c7dfadacde?w=1200&q=80&auto=format&fit=crop');">
         <span>L'atelier, Cervione</span>
       </div>
       <div class="boutique-text reveal d1">
